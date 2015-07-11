@@ -5,7 +5,7 @@ var assert = require('yeoman-generator').assert;
 var helpers = require('yeoman-generator').test;
 var os = require('os');
 
-describe('dslink:app', function () {
+describe('dslink:app', function() {
   before(function (done) {
     helpers.run(path.join(__dirname, '../generators/app'))
       .withOptions({ skipInstall: true })
@@ -13,12 +13,12 @@ describe('dslink:app', function () {
       .on('end', done);
   });
 
-  it('creates files', function () {
+  it('creates files', function() {
     assert.file([
-      'bower.json',
       'package.json',
-      '.editorconfig',
-      '.jshintrc'
+      'dslink.json',
+      'index.js',
+      'lib/index.js'
     ]);
   });
 });
