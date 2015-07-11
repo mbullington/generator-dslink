@@ -46,7 +46,7 @@ module.exports = yeoman.generators.Base.extend({
       this.props = props;
       // To access props later use this.props.someOption;
 
-      this.fs.copyTpl(this.templatePath() + '/**', this.destinationPath(to), props);
+      this.fs.copyTpl(this.templatePath() + '/**', this.destinationPath(), props);
       done();
     }.bind(this));
   },
