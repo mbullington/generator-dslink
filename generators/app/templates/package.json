@@ -1,9 +1,14 @@
 {
   "name": "<%= appName %>",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "<%= description %>",
   "dependencies": {
-    "babel": "^5.6.14",
-    "dslink": "IOT-DSA/sdk-dslink-javascript#artifacts"
+    "babel-polyfill": "^6.3.14",
+    "dslink": "git://github.com/IOT-DSA/sdk-dslink-javascript.git#artifacts"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.3.17",
+    "babel-preset-es2015": "^6.3.13",
+    "babel-register": "^6.3.13"
   }
 }

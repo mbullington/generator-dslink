@@ -1,4 +1,7 @@
+import "babel-runtime";
+
 import { SimpleNode, LinkProvider } from 'dslink';
+import { defaultNodes } from './structure';
 
 // .class is not an ES6 convention, it's just part of the SDK for now.
 // you'll be able to drop it later when using ES6 classes
@@ -14,29 +17,7 @@ class Increment extends SimpleNode.class {
 
 // Process the arguments and initializes the default nodes.
 var link = new LinkProvider(process.argv.slice(2), '<%= linkName %>-', {
-  defaultNodes: {
-    // counter is a value node, it holds the value of our counter
-    counter: {
-      $type: 'int',
-      '?value': 0
-    },
-    // increment is an action node, it will increment /counter
-    // by the specified amount
-    increment: {
-      // references the increment profile, which makes this node an instance of
-      // our Increment class
-      $is: 'increment',
-      $invokable: 'write',
-      // $params is the parameters that are passed to onInvoke
-      $params: [
-        {
-          name: 'amount',
-          type: 'int',
-          default: 1
-        }
-      ]
-    }
-  },
+  defaultNodes,
   // register our custom node here as a profile
   // when we use $is with increment, it
   // creates our Increment node
@@ -49,6 +30,4 @@ var link = new LinkProvider(process.argv.slice(2), '<%= linkName %>-', {
 
 // Connect to the broker.
 // link.connect() returns a Promise.
-link.connect().catch((e) => {
-  console.log(e.stack);
-});
+link.connect();

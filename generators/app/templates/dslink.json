@@ -1,12 +1,13 @@
 {
   "name": "<%= appName %>",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "<%= description %>",
+  "main": "dist/index.js",
   "engines": {
     "node": ">=0.10.0"
   },
   "getDependencies": [
-    "npm install"
+    "node install.js"
   ],
   "configs": {
     "broker": {
