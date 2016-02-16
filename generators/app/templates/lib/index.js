@@ -1,4 +1,4 @@
-import "babel-runtime";
+import 'babel-polyfill';
 
 import { SimpleNode, LinkProvider } from 'dslink';
 import { defaultNodes } from './structure';
